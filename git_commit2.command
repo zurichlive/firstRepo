@@ -1,5 +1,5 @@
-echo "Welcome to the Imbach Git-Tool"
-echo "Please enter a comment for this version"
+echo "** Welcome to the Imbach Git-Tool **"
+echo "Please enter a comment for this version (submit by pressing enter)"
 read name
 echo "Your comment is $name"
 
