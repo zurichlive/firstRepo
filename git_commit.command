@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 #set /p ccomment="Enter Comment: "
 #echo "git"
 #echo %ccomment%
