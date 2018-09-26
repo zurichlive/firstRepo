@@ -1,0 +1,2 @@
+workon dataviz
+jupyter notebook
