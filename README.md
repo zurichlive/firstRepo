@@ -1,4 +1,3 @@
 # My first repository
-my first repository
-
-My first edit
+Work repository for zurichlive.
+Work in progress.
