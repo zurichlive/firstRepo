@@ -1,0 +1,51 @@
+,active,code,firstName,hasMorePages,id,lastName,number,officialDenomination,salutationLetter,salutationTitle,updated
+0,False,,Giuseppe,,1353,a Marca,,,,,2015-05-17T21:18:19Z
+1,False,,Alois,,1354,Ab Yberg,,,,,2015-05-17T21:18:19Z
+2,True,PER_2565_,Fabio,,801,Abate,2565.0,Abate,,,2015-11-20T16:06:42Z
+3,False,,Alfred,,1355,Abegg,,,,,2015-05-17T21:18:19Z
+4,False,,Johann Jakob,,1356,Abegg,,,,,2015-05-17T21:18:19Z
+5,False,,H. Roman,,1357,Abt,,,,,2015-05-17T21:18:19Z
+6,False,,Heinrich E.,,1358,Abt,,,,,2015-05-17T21:18:19Z
+7,False,,Alfred,,1359,Ackermann,,Ackermann Alfred,,,2015-05-17T21:18:19Z
+8,False,,Joseph,,1360,Ackermann,,Ackermann Joseph,,,2015-05-17T21:18:19Z
+9,False,,Walter,,1361,Ackermann,,Ackermann Walter,,,2015-05-17T21:18:19Z
+10,False,,Peter,,1362,Acklin,,,,,2015-05-17T21:18:19Z
+11,False,,Jakob Josef,,1363,Adam,,,,,2015-05-17T21:18:19Z
+12,True,PER_3055_,Jean-Luc,,4154,Addor,3055.0,Addor,,,2017-03-22T14:59:30Z
+13,False,,Jules-Henri,,1364,Addor,,,,,2015-05-17T21:18:19Z
+14,False,,Gustave,,1365,Ador,,Ador,,,2015-05-17T21:18:19Z
+15,False,,Ernst,,1366,Aebersold,,,,,2015-05-17T21:18:19Z
+16,True,PER_2670_,Andreas,,3867,Aebi,2670.0,Aebi Andreas,,,2018-01-16T09:29:48Z
+17,True,PER_2760_,Matthias,,4049,Aebischer,2760.0,Aebischer Matthias,,,2018-07-13T08:31:16Z
+18,False,,Max,,1172,Aebischer,,Aebischer Max,,,2015-05-17T21:18:19Z
+19,False,,Paul,,1367,Aebischer,,Aebischer Paul,,,2015-05-17T21:18:19Z
+20,False,,Paul,,1368,Aeby,,Aeby Paul,,,2015-05-17T21:18:19Z
+21,False,,Pierre,,1369,Aeby,,,,,2015-05-17T21:18:19Z
+22,False,PER_2440_,Pierre,,369,Aeby,2440.0,Aeby,,,2015-05-17T21:18:19Z
+23,False,,A. Otto,,1370,Aepli,,Aepli A. Otto,,,2015-05-17T21:18:19Z
+24,False,,Arnold Otto,,1371,Aepli,,,,,2015-05-17T21:18:19Z
+25,False,PER_2365_,Regine,,298,Aeppli,2365.0,Aeppli,,,2015-05-17T21:18:19Z
+26,False,,Adolf,,1372,Aeschbach,,,,,2015-05-17T21:18:19Z
+27,False,,Ferdinand,,1373,Aeschbacher,,Aeschbacher Ferdinand,,,2015-05-17T21:18:19Z
+28,False,PER_2473_,Ruedi,,449,Aeschbacher,2473.0,Aeschbacher Ruedi,,,2015-05-17T21:18:19Z
+29,True,PER_2758_,Thomas,,4053,Aeschi,2758.0,Aeschi Thomas,,,2018-02-21T08:42:32Z
+30,False,PER_1097_,Alfred,,648,Affolter,1097.0,Affolter Alfred,,,2015-05-17T21:18:19Z
+31,False,,Amanz Kaspar,,1374,Affolter,,Affolter Amanz,,,2015-05-17T21:18:19Z
+32,False,,Hans,,1375,Affolter,,Affolter Hans,,,2015-05-17T21:18:19Z
+33,False,PER_2201_,Max,,777,Affolter,2201.0,Affolter Max,,,2015-05-17T21:18:19Z
+34,False,,Emilio,,1376,Agostinetti,,,,,2015-05-17T21:18:19Z
+35,False,PER_2200_,Pierre,,1,Aguet,2200.0,Aguet,,,2015-05-17T21:18:19Z
+36,False,,Mario,,1377,Agustoni,,,,,2015-05-17T21:18:19Z
+37,False,,Giovanni,,1378,Airoldi,,,,,2015-05-17T21:18:19Z
+38,False,PER_1098_,Erwin,,649,Akeret,1098.0,Akeret,,,2015-05-17T21:18:19Z
+39,False,,August,,1379,Albrecht,,Albrecht August,,,2015-05-17T21:18:19Z
+40,False,,H. Jakob,,1380,Albrecht,,Albrecht H. Jakob,,,2015-05-17T21:18:19Z
+41,False,,Hans,,1381,Albrecht,,Albrecht Hans,,,2015-05-17T21:18:19Z
+42,False,,Jakob,,1382,Albrecht,,Albrecht Jakob,,,2015-05-17T21:18:19Z
+43,False,,Luigi,,1383,Albrecht,,Albrecht Luigi,,,2015-05-17T21:18:19Z
+44,False,,Prospero,,1384,Albrici,,,,,2015-05-17T21:18:19Z
+45,False,PER_1099_,Claudius,,650,Alder,1099.0,Alder Claudius,,,2015-05-17T21:18:19Z
+46,False,PER_2366_,Fredi,,300,Alder,2366.0,Alder Fredi,,,2015-05-17T21:18:19Z
+47,False,PER_2001_,Peter,,714,Aliesch,2001.0,Aliesch,,,2015-05-17T21:18:19Z
+48,False,PER_2583_,Evi,,1131,Allemann,2583.0,Allemann,,,2018-05-30T14:50:49Z
+49,False,,Werner,True,1385,Allemann,,Allemann Werner,,,2015-05-17T21:18:19Z
