@@ -1,23 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[ ]:
-
-
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import random
 
-
-# In[ ]:
-
-
 url_base = 'https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-'
 url_end = '.html'
-
-
-# In[ ]:
 
 
 # returns string without evil characters
@@ -39,12 +28,14 @@ def make_beautiful(temp_string):
     return temp_string
 
 # returns list with admin.ch-Veranstaltung details of id provided
-# 0 = Ort
-# 1 = Zeit
-# 2 = Beschreibung
-# 3 = Kontakt
-# 4 = Veranstalter
-# 5 = URL
+# 0 = id
+# 1 = Titel
+# 2 = Ort
+# 3 = Zeit
+# 4 = Beschreibung
+# 5 = Kontakt
+# 6 = Veranstalter
+# 7 = URL
 #
 #
 def get_detail(event_id):
@@ -52,8 +43,10 @@ def get_detail(event_id):
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
     result = soup.find_all('td',{'class':''})
+    result_title = soup.find_all('h1')
     result_list = []
-    
+
+    # Order in 'result' (as received per request)
     # 0 = Ort
     # 1 = Zeit
     # 2 = Beschreibung
@@ -71,7 +64,9 @@ def get_detail(event_id):
         #result_place = result[0].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
         #result_desc = result[2].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
         #result_contact = result[3].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
-        
+
+        result_list.append(str(event_id))
+        result_list.append(result_title[0].text.strip())
         result_list.append(result_place)
         result_list.append(result_time)
         result_list.append(result_desc)
@@ -82,11 +77,8 @@ def get_detail(event_id):
         print('IndexError with id '+str(event_id))
     #except:
     #    print('General error with id'+str(event_id))
-        
+
     return result_list
-
-
-# In[ ]:
 
 
 # get Veranstaltungen
@@ -113,13 +105,13 @@ if end_input is '':
 else:
     # else we get the whole range
     #
-    end_id = int(end_input) 
+    end_id = int(end_input)
     # loop through range
     #
     for x in range(start_id,end_id):
         new_list = get_detail(x)
         # if there is a Veranstaltung behind the id
-        # 
+        #
         if len(new_list)>0:
             #print('Veranstaltung: '+str(x)+': '+new_list[0])
             result_list.append(new_list)
@@ -130,29 +122,16 @@ else:
                 print('Counter file split: '+str(counter))
                 data = pd.DataFrame(result_list)
                 data.to_csv("veranstaltungen_" + str(start_id) + "_" + str(counter) + "_"  + str(random.randrange(0, 10000)) + str(random.randrange(0, 10000)) + ".csv")
-                result_list = [] 
+                result_list = []
 
-# loop is done, we write the final result_list to a file
+# single query or loop is done, we write the final result_list to a file
 #
-if counter % file_length != 0:
+if end_input is '' or counter % file_length != 0:
     print('Counter file split: '+str(counter))
     data = pd.DataFrame(result_list)
     data.to_csv("veranstaltungen_" + str(start_id) + "_" + str(counter)  + "_"  + str(random.randrange(0, 10000)) + str(random.randrange(0, 10000)) + ".csv")
-    
+
 
 print('*** Thank you - we are done with Veranstaltungen from admin.ch ***')
 #data = pd.DataFrame(result_list)
 #data.to_csv("veranstaltungen" + str(random.randrange(0, 10000)) + str(random.randrange(0, 10000)) + ".csv")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
