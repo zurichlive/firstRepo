@@ -1,4 +1,4 @@
-# Admin Mitteilungen und Veranstaltungen
+# Admin.ch-Tool für Veranstaltungen und Mitteilungen
 
 Tool zur Extrahierung und Auswertung von Medienmitteilungen und Veranstaltungen der Schweizer Bundesverwaltung (admin.ch). In einer ersten Version ist die Funktion der Veranstaltungen abgedeckt.
 
