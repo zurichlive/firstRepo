@@ -1,17 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
+
+# In[9]:
+
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import random
 
-# VERSION 2.0
-#
-# Input Barney:
-#   - Besuchte Seite als HTML Lokal abspeichern (auf Slack)
+
+# In[10]:
+
 
 url_base = 'https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-'
 url_end = '.html'
+
+
+# In[13]:
+
 
 # returns string without evil characters
 #
@@ -32,90 +39,6 @@ def make_beautiful(temp_string):
     return temp_string
 
 # returns list with admin.ch-Veranstaltung details of id provided
-#
-#
-def get_detail_new(event_id):
-    url = url_base + str(event_id) + url_end
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text, 'html.parser')
-    headers = soup.find_all('th',{'role':'rowheader'} )
-    #print(headers)
-
-    has_description = False
-    has_contact = False
-
-    for entry in headers:
-        if entry.text == 'Beschreibung':
-            has_description = True
-        if entry.text == 'Kontakt':
-            has_contact = True
-
-    result = soup.find_all('td',{'class':''})
-    result_title = soup.find_all('h1')
-    result_list = []
-
-    # Order in 'result' (as received per request) could be 3, 4, 5 or 6 elements
-    # Ort, Datum und Zeit, (Beschreibung), (Kontakt), Veranstalter, (Sonstiges)
-    # Beschreibung, Kontakt and Sonstiges not in every result
-    # We ignore Sonstiges
-    #
-    # make beautiful: makes sure that new line character is preserved so that text is formatted
-    # replace new line with ";"
-    try:
-
-
-        # 0 = Ort
-        # 1 = Zeit
-        result_place = make_beautiful(str(result[0]))
-        result_time = result[1].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
-
-        if has_description:
-            # 2 = Beschreibung
-            #
-            result_desc = make_beautiful(str(result[2]))
-            if has_contact:
-                # 3 = Kontakt
-                # 4 = Veranstalter
-                #
-                result_contact = make_beautiful(str(result[3]))
-                result_who = result[4].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
-            else:
-                # 3 = Veranstalter
-                #
-                result_contact = "Kein Kontakt"
-                result_who = result[3].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
-
-        elif has_contact:
-            # 2 = Kontakt
-            # 3 = Veranstalter
-            #
-            result_desc = "Keine Beschreibung"
-            result_contact = make_beautiful(str(result[2]))
-            result_who = result[3].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
-        else:
-            # 2 = Veranstalter
-            #
-            result_desc = "Keine Beschreibung"
-            result_contact = "Kein Kontakt"
-            result_who = result[2].text.replace('\xa0',' ').replace('\t','').replace('\n',' ').strip()
-
-        result_list.append(str(event_id))
-        result_list.append(result_title[0].text.strip())
-        result_list.append(result_place)
-        result_list.append(result_time)
-        result_list.append(result_desc)
-        result_list.append(result_contact)
-        result_list.append(result_who)
-        result_list.append(url)
-    except IndexError:
-        print('IndexError with id '+str(event_id))
-    #except:
-    #    print('General error with id'+str(event_id))
-    return result_list
-
-# DEPRECATED WITH VERSION 2.0
-#
-# returns list with admin.ch-Veranstaltung details of id provided
 # 0 = id
 # 1 = Titel
 # 2 = Ort
@@ -124,7 +47,7 @@ def get_detail_new(event_id):
 # 5 = Kontakt
 # 6 = Veranstalter
 # 7 = URL
-#
+# 
 #
 def get_detail(event_id):
     url = url_base + str(event_id) + url_end
@@ -133,7 +56,7 @@ def get_detail(event_id):
     result = soup.find_all('td',{'class':''})
     result_title = soup.find_all('h1')
     result_list = []
-
+    
     # Order in 'result' (as received per request) could be 5 or 6 elements (Kontakt not in every result)
     # We ignore Sonstiges
     #
@@ -214,8 +137,12 @@ def get_detail(event_id):
         print('IndexError with id '+str(event_id))
     #except:
     #    print('General error with id'+str(event_id))
-
+        
     return result_list
+
+
+# In[12]:
+
 
 # get Veranstaltungen
 #
@@ -235,19 +162,19 @@ counter = 0
 # if user input of end_id is empty we only get the single id provided
 #
 if end_input is '':
-    new_list = get_detail_new(start_id)
+    new_list = get_detail(start_id)
     if len(new_list)>0:
         result_list.append(new_list)
 else:
     # else we get the whole range
     #
-    end_id = int(end_input)
+    end_id = int(end_input) 
     # loop through range
     #
     for x in range(start_id,end_id):
-        new_list = get_detail_new(x)
+        new_list = get_detail(x)
         # if there is a Veranstaltung behind the id
-        #
+        # 
         if len(new_list)>0:
             #print('Veranstaltung: '+str(x)+': '+new_list[0])
             result_list.append(new_list)
@@ -258,7 +185,7 @@ else:
                 print('Counter file split: '+str(counter))
                 data = pd.DataFrame(result_list)
                 data.to_csv("veranstaltungen_" + str(start_id) + "_" + str(counter) + "_"  + str(random.randrange(0, 10000)) + str(random.randrange(0, 10000)) + ".csv")
-                result_list = []
+                result_list = [] 
 
 # single query or loop is done, we write the final result_list to a file
 #
@@ -266,8 +193,21 @@ if end_input is '' or counter % file_length != 0:
     print('Counter file split: '+str(counter))
     data = pd.DataFrame(result_list)
     data.to_csv("veranstaltungen_" + str(start_id) + "_" + str(counter)  + "_"  + str(random.randrange(0, 10000)) + str(random.randrange(0, 10000)) + ".csv")
-
+    
 
 print('*** Thank you - we are done with Veranstaltungen from admin.ch ***')
 #data = pd.DataFrame(result_list)
 #data.to_csv("veranstaltungen" + str(random.randrange(0, 10000)) + str(random.randrange(0, 10000)) + ".csv")
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
