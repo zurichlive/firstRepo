@@ -8,16 +8,27 @@ https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.html?dyn_star
 
 Code-Dokumentation:
 
-# Programm zur Extrahierung: adminch_scrap.py
+# Programm zur Extrahierung
 
-Programm fragt nach Ausführung nach zwei Inputs vom Nutzer. Start id ist die ID der ersten Veranstaltung, die das Programm extrahieren soll. End id ist die ID der letzten Veranstaltung, die das Programm extrahieren soll. Das Programm iteriert dann so lange bis End id erreicht ist. Falls nur eine Veranstaltung mit einer ID extrahiert werden soll, muss und soll keine End id angegeben werden.
+**adminch_scrap.py**
 
-Das Programm erstellt mit den Daten csv-Dateien. Nach 1000 Einträgen erstellt es eine neue Datei. Die Datei ist benannt nach dem Muster:
-veranstaltungen_Start id_Anzahl Veranstaltungen extrahiert bis dahin_Zufallszahl.csv
+Programm fragt nach Ausführung nach zwei Inputs vom Nutzer. Start id ist die ID der ersten Veranstaltung, die das Programm extrahieren soll. End id ist die ID der letzten Veranstaltung, die das Programm extrahieren soll. Das Programm iteriert dann so lange bis End id erreicht ist. Falls nur eine Veranstaltung mit einer ID extrahiert werden soll, muss und soll keine End id angegeben werden. Das Programm erstellt lokale html-Dateien in einem eigenen Unterverzeichnis.
 
-# Programm zur Verarbeitung: adminch_makecsv.py / adminch_datamining.py
+Internet-Verbindung erforderlich.
 
-# Programm zur Auswertung: adminch_stats.py (work in progress!)
+**adminch_makecsv.py**
+
+Das Programm erstellt mit den lokalen html-Dateien neue csv-Dateien in einem eigenen Unterverzeichnis. Pro html-Datei eine csv-Datei.
+
+# Programm zur Verarbeitung
+
+**adminch_datamining.py**
+
+Das Programm lädt die lokalen csv-Dateien und kombiniert sie zu einem einzelnen Dataframe. Durch dieses dynamische Vorgehen sind alle möglichen Veranstaltungs-Kategorie-Informationen registriert, auch zukünftige, die neu dazukommen. Das Programm reinigt die Daten, insbesondere das Datum, um damit arbeiten zu können. Zum Schluss speichert es das Dataframe in eine einzelne Arbeits-csv-Datei ("working.csv").
+
+# Programm zur Auswertung
+
+**adminch_stats.py** (work in progress!)
 
 Fragen und Kontakt:
 Florian Imbach, florian.imbach@srf.ch
