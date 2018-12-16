@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[26]:
 
 
 from bs4 import BeautifulSoup
@@ -9,7 +9,7 @@ import pandas as pd
 import os
 
 
-# In[2]:
+# In[27]:
 
 
 ## This program loads html, processes them, moves them to the archive and creates csv
@@ -24,7 +24,7 @@ import os
 
 
 
-# In[3]:
+# In[28]:
 
 
 # returns string without evil characters
@@ -46,16 +46,15 @@ def make_beautiful(temp_string):
     return temp_string
 
 
-# In[4]:
+# In[32]:
 
 
 # returns list with admin.ch-Veranstaltung details of id provided
 # 
 #
 def process_html(event_id):
-    f = open("html/"+str(event_id)+".html", 'r')
+    f = open("html/"+str(event_id)+".html", encoding='utf-8')
     r = BeautifulSoup(f.read(), 'html.parser')
-    
     soup = BeautifulSoup(r.text, 'html.parser')
     
     dic = {}
@@ -81,7 +80,7 @@ def process_html(event_id):
     return dic
 
 
-# In[5]:
+# In[30]:
 
 
 # returns list with admin.ch-Veranstaltung details of id provided
@@ -94,7 +93,7 @@ def move_html(event_id):
     
 
 
-# In[6]:
+# In[31]:
 
 
 #List all the html files and create csv files for them
@@ -106,18 +105,6 @@ for htm in lst:
         dic.update({'File':htm})
         pd.DataFrame([dic]).to_csv("csvs/"+event_id+".csv", index=False) 
         move_html(event_id)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:

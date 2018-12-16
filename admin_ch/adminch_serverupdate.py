@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[60]:
+# In[68]:
 
 
 import requests
@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import os
 
 
-# In[61]:
+# In[69]:
 
 
 ## This program checks for new Veranstaltungen on admin.ch
@@ -18,7 +18,7 @@ import os
 ## scraped Veranstaltung and checks if newer ones are available
 
 
-# In[62]:
+# In[70]:
 
 
 # Saving off the html code into a folder
@@ -51,24 +51,26 @@ def get_detail_new(event_id):
         return True
 
 
-# In[63]:
+# In[71]:
 
 
-# Extract the number (id) from the file name list element
+# Extract the number (id) from the file name list element. Returns 0 if no number found.
 #
 #
 def extract_number(element):
-    return int(element.split('.')[0])
+    if ".csv" in element:
+        return int(element.split('.')[0])
+    else:
+        return 0
 
 
-# In[66]:
+# In[72]:
 
 
 # read latest id that we already have stored as csv and start from there
 #
 
 lst = os.listdir('csvs')
-lst.remove('.DS_Store')
 number_of_runs = 100
 
 if len(lst)<1:
