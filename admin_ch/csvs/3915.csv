@@ -1,4 +1,4 @@
 Beschreibung,"Datum
            
-           Zeit",File,ID,Kontakt,Ort,Sonstiges,URL,Veranstalter
-Testveranstaltung,Fr 01.01.2010 10:00,3915.html,3915,Test,Teststrasse 3000 Bern,"Attachments Test (JPG, 37 kB) Links Test",https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-3915.html,Testveranstalter
+           Zeit",File,ID,Kontakt,Ort,Sonstiges,TITLE,URL,Veranstalter
+Testveranstaltung,Fr 01.01.2010 10:00,3915.html,3915,Test,Teststrasse 3000 Bern,"Attachments Test (JPG, 37 kB) Links Test",Testveranstaltung,https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-3915.html,Testveranstalter

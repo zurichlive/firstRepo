@@ -1,4 +1,4 @@
 Beschreibung,"Datum
            
-           Zeit",File,ID,Kontakt,Ort,URL,Veranstalter
-Medienkonferenz,Di 18.12.2007 17:00,994.html,994,"M. Müller, SVP Schweiz",Medienzentrum Bundeshaus Konferenzsaal Centre de presse du Palais fédéral Salle de conférence Bern,https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-994.html,SVP Schweiz
+           Zeit",File,ID,Kontakt,Ort,TITLE,URL,Veranstalter
+Medienkonferenz,Di 18.12.2007 17:00,994.html,994,"M. Müller, SVP Schweiz",Medienzentrum Bundeshaus Konferenzsaal Centre de presse du Palais fédéral Salle de conférence Bern,"""Fraktionssitzung""",https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-994.html,SVP Schweiz

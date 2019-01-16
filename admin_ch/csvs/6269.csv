@@ -1,4 +1,4 @@
 Beschreibung,"Datum
            
-           Zeit",File,ID,Ort,Sonstiges,URL,Veranstalter
-Test BK,Sa 02.01.1999 14:00,6269.html,6269,Gurtengasse 5 3200 Bern,"Attachments Test BK (PDF, 434 kB) Links Test BK",https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-6269.html,Bundeskanzlei
+           Zeit",File,ID,Ort,Sonstiges,TITLE,URL,Veranstalter
+Test BK,Sa 02.01.1999 14:00,6269.html,6269,Gurtengasse 5 3200 Bern,"Attachments Test BK (PDF, 434 kB) Links Test BK",Test BK,https://www.admin.ch/gov/de/start/dokumentation/veranstaltungen.event-id-6269.html,Bundeskanzlei
